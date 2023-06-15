@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.questionnaire.ProteinFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/iv_protein"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        android:contentDescription="@string/protein" />
+
+    <TextView
+        android:id="@+id/tv_detail_food_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/gilroy_bold"
+        android:text="@string/protein_questionnaire"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_protein" />
+
+    <RadioGroup
+        android:id="@+id/rg_protein"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_food_name">
+
+        <RadioButton
+            android:id="@+id/rb_protein_0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_radio_button"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:button="@null"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="@drawable/bg_radio_button"
+            android:text="@string/protein_value_0" />
+
+        <RadioButton
+            android:id="@+id/rb_protein_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_radio_button"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:textColor="@drawable/bg_radio_button"
+            android:text="@string/protein_value_1"
+            android:button="@null"
+            android:textSize="20sp"
+            android:textAlignment="center" />
+
+
+        <RadioButton
+            android:id="@+id/rb_protein_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_radio_button"
+            android:padding="5dp"
+            android:button="@null"
+            android:textColor="@drawable/bg_radio_button"
+            android:textAlignment="center"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:text="@string/protein_value_3" />
+        <RadioButton
+            android:id="@+id/rb_protein_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_radio_button"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:button="@null"
+            android:textSize="20sp"
+            android:textColor="@drawable/bg_radio_button"
+            android:textAlignment="center"
+            android:text="@string/protein_value_2" />
+
+        <RadioButton
+            android:id="@+id/rb_protein_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_radio_button"
+            android:padding="5dp"
+            android:button="@null"
+            android:textColor="@drawable/bg_radio_button"
+            android:textAlignment="center"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:text="@string/protein_value_4" />
+    </RadioGroup>
+
+    <ImageButton
+        android:id="@+id/btn_prev_protein"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_button"
+        android:src="@drawable/ic_prev"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="?attr/colorOnPrimary"
+        android:contentDescription="@string/back_button" />
+
+    <ImageButton
+        android:id="@+id/btn_next_protein"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_button"
+        android:src="@drawable/ic_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="?attr/colorOnPrimary"
+        android:visibility="gone"
+        android:contentDescription="@string/next" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
