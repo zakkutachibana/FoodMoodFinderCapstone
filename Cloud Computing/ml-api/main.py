@@ -5,11 +5,12 @@ from sklearn.discriminant_analysis import StandardScaler
 import tensorflow as tf
 import pandas as pd
 from keras.models import load_model
+import random
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
-model = load_model('model_new.h5')
+model = load_model('new_model.h5')
 
 ds = pd.read_csv("final_dataset.csv")
 
@@ -17,13 +18,11 @@ ds = pd.read_csv("final_dataset.csv")
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.content_type == 'application/json':
-        data = request.json
+        data = request.get_json()
     elif request.content_type == 'application/x-www-form-urlencoded':
         data = request.form.to_dict()
+        data = {key: float(value) for key, value in data.items()}
     else:
-        data = request.form.to_dict()
-
-    if data is None:
         response = {
             'message': 'Unsupported content type',
             'error': True,
@@ -40,17 +39,14 @@ def predict():
         
     makanan_sesuai_kelas = pd.concat([makanan_sesuai_kelas, image_urls], axis=1)
 
-    print(makanan_sesuai_kelas)
-
     foods = []
 
     for i, (makanan, url) in enumerate(makanan_sesuai_kelas.values):
-        foods.append({
-            i: {
-                "name": makanan,
-                "photo": url
-            }
-        })
+        food = {
+            'name': makanan,
+            'photo': url
+        }
+        foods.append(food)
 
     if foods:
         response = {
@@ -68,7 +64,7 @@ def predict():
 
     return jsonify(response)
 
-@app.route('/food/<name>', methods=['GET'])
+@app.route('/food-detail/<name>', methods=['GET'])
 def get_food_details(name):
     makanan_data = ds.loc[ds['Makanan'] == name]
 
@@ -94,6 +90,26 @@ def get_food_details(name):
             'error': True,
             'status': 404
         }
+
+    return jsonify(response)
+
+@app.route('/random-foods', methods=['GET'])
+def get_random_foods():
+    random_foods = ds.sample(n=10)  # Mengambil 10 makanan secara acak dari dataset
+    food_list = []
+
+    for index, row in random_foods.iterrows():
+        food_list.append({
+            'name': row['Makanan'],
+            'photo': row['Gambar']
+        })
+
+    response = {
+        'message': 'Rekomendasi Makanan Hari Ini',
+        'foods': food_list,
+        'error': False,
+        'status': 200
+    }
 
     return jsonify(response)
 
