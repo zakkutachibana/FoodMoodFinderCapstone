@@ -287,7 +287,7 @@ pickle.dump(model, open('/content/drive/MyDrive/Capstone/Model/model.pkl', 'wb')
 
 """# Predict"""
 
-11#entering the user's food choices
+#entering the user's food choices
 karbohidrat = int(input("Masukkan pilihan Karbohidrat: "))
 protein = int(input("Masukkan pilihan Protein: "))
 sayur = int(input("Masukkan pilihan Sayur: "))
