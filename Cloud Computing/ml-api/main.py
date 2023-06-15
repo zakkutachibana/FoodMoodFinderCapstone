@@ -8,11 +8,11 @@ import random
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
-model = load_model('model.h5')
+model = load_model('final_model.h5')
 
 ds = pd.read_csv("final_dataset.csv")
 
-// membuat prediksi
+
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.content_type == 'application/json':
@@ -46,7 +46,7 @@ def predict():
     if results:
         response = {
             'message': 'Makanan yang sesuai dengan preferensi Anda :',
-            'foods': foods,
+            'foods': results,
             'error': False,
             'status': 200,
         }
@@ -67,7 +67,7 @@ def get_food_detail(nama_makanan):
         detail_makanan = {
             'nama': data_makanan['Makanan'].values[0],
             'gambar': data_makanan['Gambar'].values[0],
-            'karbohidrat': data_makanan'Karbohidrat'].values[0],
+            'karbohidrat': data_makanan['Karbohidrat'].values[0],
             'protein': data_makanan['Protein'].values[0],
             'sayur': data_makanan['Sayur'].values[0],
             'pengolahan':data_makanan['Pengolahan'].values[0]
