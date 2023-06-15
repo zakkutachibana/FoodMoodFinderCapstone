@@ -3,10 +3,10 @@ const mysql = require("mysql");
 // buat konfigurasi koneksi database
 const dbconn = mysql.createConnection({
     port : 3306,
-    host: "34.101.162.11",
-    user :"root",
-    password :"root123",
-    database : "foodmoodfinder_db",
+    host: "YOUR_DB_HOST",
+    user :"YOUR_DB_USER",
+    password :"YOUR_DB_PASS",
+    database : "YOUR_DB_DATABASE",
     multipleStatements: true,
 });
 
