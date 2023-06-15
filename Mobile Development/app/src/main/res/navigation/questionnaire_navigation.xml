@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/questionnaire_navigation"
+    app:startDestination="@id/carbFragment">
+
+    <fragment
+        android:id="@+id/carbFragment"
+        android:name="com.zak.foodmoodfinder.ui.questionnaire.CarbFragment"
+        android:label="fragment_carbo"
+        tools:layout="@layout/fragment_carbo" >
+        <action
+            android:id="@+id/action_carbFragment_to_proteinFragment"
+            app:destination="@id/proteinFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/proteinFragment"
+        android:name="com.zak.foodmoodfinder.ui.questionnaire.ProteinFragment"
+        android:label="fragment_protein"
+        tools:layout="@layout/fragment_protein" >
+        <action
+            android:id="@+id/action_proteinFragment_to_veggieFragment"
+            app:destination="@id/veggieFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/veggieFragment"
+        android:name="com.zak.foodmoodfinder.ui.questionnaire.VeggieFragment"
+        android:label="fragment_veggie"
+        tools:layout="@layout/fragment_veggie" >
+        <action
+            android:id="@+id/action_veggieFragment_to_cookingFragment"
+            app:destination="@id/cookingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/cookingFragment"
+        android:name="com.zak.foodmoodfinder.ui.questionnaire.CookingFragment"
+        android:label="fragment_cooking"
+        tools:layout="@layout/fragment_cooking" >
+        <action
+            android:id="@+id/action_cookingFragment_to_resultActivity"
+            app:destination="@id/resultActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/resultActivity"
+        android:name="com.zak.foodmoodfinder.ui.result.ResultActivity"
+        android:label="activity_result"
+        tools:layout="@layout/activity_result" />
+</navigation>

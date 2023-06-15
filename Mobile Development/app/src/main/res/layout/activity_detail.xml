@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detail.DetailActivity"
+    android:background="?attr/colorOnBackground">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="?attr/colorOnPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_heavy"
+                android:text="@string/title_detail"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_back"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="24dp"
+                android:background="@drawable/bg_button_gradient"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="?attr/colorOnPrimary"
+                android:contentDescription="@string/back_button" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shimmer_auto_start="true">
+
+        <include layout="@layout/activity_detail_placeholder" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <ImageView
+        android:id="@+id/iv_detail_food"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_bar"
+        android:contentDescription="@string/food_picture" />
+
+    <co.ankurg.expressview.ExpressView
+        android:id="@+id/btn_favorite"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="-24dp"
+        android:layout_marginBottom="-24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_detail_food"
+        app:layout_constraintEnd_toEndOf="@+id/iv_detail_food"
+        app:checkedIconTint="#EA3B52"/>
+
+    <TextView
+        android:id="@+id/tv_detail_food_name"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/gilroy_bold"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_detail_food" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_food_name" />
+
+    <ImageView
+        android:id="@+id/iv_carb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_carb_outline"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:tint="?attr/colorPrimary"
+        android:contentDescription="@string/carbohydrate" />
+
+    <TextView
+        android:id="@+id/tv_carb_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/carbohydrate"
+        app:layout_constraintStart_toEndOf="@+id/iv_carb"
+        app:layout_constraintTop_toTopOf="@+id/iv_carb"
+        android:textColor="?attr/colorPrimary"
+        android:fontFamily="@font/gilroy_bold"/>
+
+    <TextView
+        android:id="@+id/tv_carb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/gilroy_light"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_carb"
+        app:layout_constraintStart_toEndOf="@+id/iv_carb"
+        app:layout_constraintTop_toBottomOf="@+id/tv_carb_title" />
+
+    <ImageView
+        android:id="@+id/iv_protein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_protein_outline"
+        app:layout_constraintStart_toStartOf="@+id/iv_carb"
+        app:layout_constraintTop_toBottomOf="@+id/iv_carb"
+        app:tint="?attr/colorPrimary"
+        android:contentDescription="@string/protein" />
+
+    <TextView
+        android:id="@+id/tv_protein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/gilroy_light"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_protein"
+        app:layout_constraintStart_toEndOf="@+id/iv_protein"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_protein" />
+
+    <TextView
+        android:id="@+id/tv_veggie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/gilroy_light"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+    <TextView
+        android:id="@+id/tv_cooking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/gilroy_light"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+    <TextView
+        android:id="@+id/tv_title_protein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/protein"
+        app:layout_constraintStart_toEndOf="@+id/iv_protein"
+        app:layout_constraintTop_toTopOf="@+id/iv_protein"
+        android:textColor="?attr/colorPrimary"
+        android:fontFamily="@font/gilroy_bold"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/vegetable"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        android:textColor="?attr/colorPrimary"
+        android:fontFamily="@font/gilroy_bold"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/cooking"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        android:textColor="?attr/colorPrimary"
+        android:fontFamily="@font/gilroy_bold"/>
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_vegetable_outline"
+        app:layout_constraintStart_toStartOf="@+id/iv_protein"
+        app:layout_constraintTop_toBottomOf="@+id/iv_protein"
+        app:tint="?attr/colorPrimary"
+        android:contentDescription="@string/vegetable" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_cooking_outline"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:tint="?attr/colorPrimary"
+        android:contentDescription="@string/cooking" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_find_in_google"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_button_gradient"
+        android:fontFamily="@font/gilroy_heavy"
+        android:padding="20dp"
+        android:text="@string/find_food_in_google"
+        android:textAllCaps="false"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

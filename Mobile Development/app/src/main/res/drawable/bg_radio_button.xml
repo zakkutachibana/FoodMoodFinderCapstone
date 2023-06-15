@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true"
+        android:color="?attr/colorOnPrimary">
+        <shape>
+            <solid
+                android:color="?attr/colorPrimary" />
+            <corners android:radius="32dp" />
+            <padding android:left="4dp" android:right="4dp" />
+        </shape>
+    </item>
+    <item android:state_checked="false"
+        android:color="?attr/colorPrimary">
+        <shape>
+            <stroke
+                android:width="2dp"
+                android:color="?attr/colorPrimary" />
+            <corners android:radius="32dp" />
+            <padding android:left="4dp" android:right="4dp" />
+        </shape>
+
+    </item>
+</selector>
