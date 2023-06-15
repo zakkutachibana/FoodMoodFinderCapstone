@@ -176,25 +176,6 @@ print('Training features shape:', train_features.shape)
 print('Validation features shape:', val_features.shape)
 print('Test features shape:', test_features.shape)
 
-#scaler = StandardScaler()
-#train_features = scaler.fit_transform(train_features)
-
-#val_features = scaler.transform(val_features)
-#test_features = scaler.transform(test_features)
-
-#train_features = np.clip(train_features, -160, 160)
-#val_features = np.clip(val_features, -160, 160)
-#test_features = np.clip(test_features, -160, 160)
-
-
-#print('Training labels shape:', train_labels.shape)
-#print('Validation labels shape:', val_labels.shape)
-#print('Test labels shape:', test_labels.shape)
-
-#print('Training features shape:', train_features.shape)
-#print('Validation features shape:', val_features.shape)
-#print('Test features shape:', test_features.shape)
-
 train_features
 
 test_features
