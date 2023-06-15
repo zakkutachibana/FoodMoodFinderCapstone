@@ -1,7 +1,5 @@
-import time
 from flask import Flask, request, jsonify
 import numpy as np
-from sklearn.discriminant_analysis import StandardScaler
 import tensorflow as tf
 import pandas as pd
 from keras.models import load_model
@@ -10,76 +8,73 @@ import random
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
-model = load_model('new_model.h5')
+model = load_model('model.h5')
 
 ds = pd.read_csv("final_dataset.csv")
 
-
+// membuat prediksi
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.content_type == 'application/json':
         data = request.get_json()
-    elif request.content_type == 'application/x-www-form-urlencoded':
-        data = request.form.to_dict()
-        data = {key: float(value) for key, value in data.items()}
     else:
         response = {
-            'message': 'Unsupported content type',
+            'message': 'Data yang dimasukkan tidak didukung',
             'error': True,
             'status': 400,
         }
         return jsonify(response)
 
-    input_data = np.array([list(data.values())])
+    preference_input = np.array([list(data.values())])
     
-    predictions = np.argmax(model.predict(input_data))
+    prediction = np.argmax(model.predict(preference_input))
 
-    makanan_sesuai_kelas = ds.loc[ds['Kelas'] == predictions, 'Makanan'].reset_index(drop=True)
-    image_urls = ds.loc[ds['Kelas'] == predictions, 'Gambar'].reset_index(drop=True)
+    makanan_sesuai_kelas = ds.loc[ds['Kelas'] == prediction, 'Makanan'].reset_index(drop=True)
+    gambar_url = ds.loc[ds['Kelas'] == prediction, 'Gambar'].reset_index(drop=True)
         
-    makanan_sesuai_kelas = pd.concat([makanan_sesuai_kelas, image_urls], axis=1)
+    makanan_sesuai_kelas = pd.concat([makanan_sesuai_kelas, gambar_url], axis=1)
 
-    foods = []
+    results = []
 
-    for i, (makanan, url) in enumerate(makanan_sesuai_kelas.values):
+    for i, (makanan, gambar) in enumerate(makanan_sesuai_kelas.values):
         food = {
             'name': makanan,
-            'photo': url
+            'photo': gambar
         }
-        foods.append(food)
+        results.append(food)
 
-    if foods:
+    if results:
         response = {
-            'message': 'Makanan yang sesuai dengan pilihan Anda',
+            'message': 'Makanan yang sesuai dengan preferensi Anda :',
             'foods': foods,
             'error': False,
             'status': 200,
         }
     else:
         response = {
-            'message': 'Mohon maaf, makanan tidak tersedia.',
+            'message': 'Makanan tidak ada yang sesuai',
             'error': True,
             'status': 404,
         }
 
     return jsonify(response)
 
-@app.route('/food-detail/<name>', methods=['GET'])
-def get_food_details(name):
-    makanan_data = ds.loc[ds['Makanan'] == name]
+@app.route('/food-detail/<nama_makanan>', methods=['GET'])
+def get_food_detail(nama_makanan):
+    data_makanan = ds.loc[ds['Makanan'] == nama_makanan]
 
-    if not makanan_data.empty:
+    if not data_makanan.empty:
         detail_makanan = {
-            'nama': makanan_data['Makanan'].values[0],
-            'gambar': makanan_data['Gambar'].values[0],
-            'karbohidrat': makanan_data['Karbohidrat'].values[0],
-            'protein': makanan_data['Protein'].values[0],
-            'sayur': makanan_data['Sayur'].values[0],
-            'pengolahan': makanan_data['Pengolahan'].values[0]
+            'nama': data_makanan['Makanan'].values[0],
+            'gambar': data_makanan['Gambar'].values[0],
+            'karbohidrat': data_makanan'Karbohidrat'].values[0],
+            'protein': data_makanan['Protein'].values[0],
+            'sayur': data_makanan['Sayur'].values[0],
+            'pengolahan':data_makanan['Pengolahan'].values[0]
         }
 
         response = {
-            'message': 'Detail makanan',
+            'message': 'Detail makanan :',
             'makanan': detail_makanan,
             'error': False,
             'status': 200
@@ -95,18 +90,18 @@ def get_food_details(name):
 
 @app.route('/random-foods', methods=['GET'])
 def get_random_foods():
-    random_foods = ds.sample(n=10)  # Mengambil 10 makanan secara acak dari dataset
-    food_list = []
+    random_foods = ds.sample(n=10)  
+    list_food = []
 
     for index, row in random_foods.iterrows():
-        food_list.append({
+        list_food.append({
             'name': row['Makanan'],
             'photo': row['Gambar']
         })
 
     response = {
-        'message': 'Rekomendasi Makanan Hari Ini',
-        'foods': food_list,
+        'message': 'Rekomendasi Makanan Untukmu',
+        'foods': list_food,
         'error': False,
         'status': 200
     }
