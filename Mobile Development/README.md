@@ -13,4 +13,4 @@
 
 ## UI Design Documentation
 App mockups can be accessed [here](https://www.figma.com/file/6sf03mSmyB6m3VSZFBF56S/FoodMoodFinder?type=design&node-id=0-1&t=JIjzULUXJF3qNNnQ-0)  
-App Prototype can be accessed [here](https://www.figma.com/proto/6sf03mSmyB6m3VSZFBF56S/FoodMoodFinder?type=design&node-id=1-142&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=1%3A4)
+App Prototype can be accessed [here](https://www.figma.com/proto/6sf03mSmyB6m3VSZFBF56S/FoodMoodFinder)
