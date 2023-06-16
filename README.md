@@ -13,6 +13,11 @@ FoodMoodFinder is an app to help people when they are confused about what to eat
 - We hope this application can help you to choose food that suits your current situation. We hope you will have an amazing experience.
 
 ## Installation
+1. Download the APK from this [Google Drive]( https://drive.google.com/file/d/1tnxM4R2fXqGj32o4GoePyfgdiJINPDjf/ )
+2. Open and install the APK to your smartphone
+3. Enjoy!
+
+APK size: 18.5 MB
 
 ## Project Document
 Final Presentation slides can be accessed [here](https://docs.google.com/presentation/d/1Jlo45BDPbvZhTghz6A7YYNinMx0EVT-rEzio9JQ2J-o/edit?usp=sharing)  
