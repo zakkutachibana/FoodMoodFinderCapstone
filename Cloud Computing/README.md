@@ -29,13 +29,23 @@ entrypoint: gunicorn -b :$PORT main:app
 This command deploys your Flask application to Google App Engine. Follow the prompts to select your project and choose the region where you want to deploy your application.
 
 # API Endpoints
+Here are the endpoints for our application:
+## FoodMoodFinder
 
 | Endpoint | Method | Body Sent (JSON) | Method |
 | ------ | ------ | ------ | ------ |
 | / | GET | None | Testing Server |
 | /login | POST | username & password | Authentication for user |
 | /register | POST | username & password | Registration for new user |
+| /profile/:email | GET | None | Get value detail user |
+
+## Machine Learning
+
+| Endpoint | Method | Body Sent (JSON) | Method |
+| ------ | ------ | ------ | ------ |
 | /predict | POST | karbohirat,protein,sayur & pengolahan (Int) | HTTP Post Request Prediction Endpoint |
 | /random-foods | GET | None| Give the response 10 foods random |
 | /food-detail/:nama_makanan | GET | None | Give the response about foods detail |
 
+
+ 
