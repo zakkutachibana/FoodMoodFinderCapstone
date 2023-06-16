@@ -15,11 +15,11 @@ Protein :
 * 3 = Tahu, tempe, dan telur
 * 4 = Tidak ada
 
-Sayur
+Sayur :
 * 0 = Tidak
 * 1 = Ya
 
-Pengolahan
+Pengolahan :
 * 0 = Goreng atau tumis
 * 1 = Lainnya
 * 2 = Panggang atau bakar
